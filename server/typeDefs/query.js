@@ -2,13 +2,12 @@ const { gql } = require("apollo-server");
 
 const query = gql`
   type Query {
-    books: [Book],
-    getBookFromTitle(author: String): [Book]
+    organizations: [Organization]
   }
 `;
 
 module.exports = {
-  query,
+  query
 };
 
 ////getBookFromTitle(author: String): [Book]

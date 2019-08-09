@@ -1,7 +1,8 @@
-const { booksResolvers } = require('./bookResolvers');
+const { booksResolvers } = require("./bookResolvers");
+const { organizationResolvers } = require("./organizationResolvers");
 
-const resolvers = [booksResolvers];
+const resolvers = [organizationResolvers];
 
 module.exports = {
-  resolvers,
+  resolvers
 };
