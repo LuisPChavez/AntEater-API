@@ -2,8 +2,8 @@ const { gql } = require("apollo-server");
 
 const organizationType = gql`
   type Organization {
-    id: String
-    name: String
+    id: String!
+    name: String!
     email: String
     description: String
   }
