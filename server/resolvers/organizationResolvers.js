@@ -8,7 +8,7 @@ const organizationResolvers = {
   },
   Mutation: {
     addOrganization: async (parent, args) =>
-      await Organization.addOrg(args.orgName)
+      await Organization.addOrg(args.name, args.email, args.description)
   }
 };
 

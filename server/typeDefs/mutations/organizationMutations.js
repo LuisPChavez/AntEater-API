@@ -2,7 +2,11 @@ const { gql } = require("apollo-server");
 
 const organizationMutations = gql`
   type Mutation {
-    addOrganization(orgName: String!): [Organization]
+    addOrganization(
+      name: String
+      email: String
+      description: String
+    ): [Organization]
   }
 `;
 

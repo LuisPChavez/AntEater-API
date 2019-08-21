@@ -11,8 +11,8 @@ class Organization {
     return await Organization.find({ name: orgName });
   }
 
-  static async addOrg(orgName) {
-    console.log("hit");
+  static async addOrg(name, email, description) {
+    console.log(name, email, description);
   }
 
   //   static getBookFromTitle(author) {
