@@ -6,6 +6,17 @@ const organizationType = gql`
     name: String!
     email: String
     description: String
+    items: [Item]
+  }
+
+  type Item {
+    _id: String!
+    coordinateX: Float!
+    coordinateY: Float!
+    price: Int!
+    name: String!
+    description: String
+    locationName: String
   }
 `;
 

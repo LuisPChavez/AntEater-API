@@ -18,7 +18,28 @@ class Organization {
       email,
       description
     }).save();
+    console.log(newOrg);
     return [newOrg];
+  }
+
+  static async addItemToOrganization(
+    organizationId,
+    coordinateX,
+    coordinateY,
+    price,
+    name,
+    description,
+    locationName
+  ) {
+    console.log(
+      organizationId,
+      coordinateX,
+      coordinateY,
+      price,
+      name,
+      description,
+      locationName
+    );
   }
 }
 

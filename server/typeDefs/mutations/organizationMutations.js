@@ -7,6 +7,15 @@ const organizationMutations = gql`
       email: String
       description: String
     ): [Organization]
+
+    addItem(
+      coordinateX: Float!
+      coordinateY: Float!
+      price: Int!
+      name: String!
+      description: String
+      locationName: String
+    ): [Item]
   }
 `;
 

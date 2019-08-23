@@ -7,12 +7,24 @@ const organizationResolvers = {
       await Organization.findOrgByName(args.orgName)
   },
   Mutation: {
-    addOrganization: async (parent, args) =>
+    addOrganization: async (parent, args) => {
       await Organization.addOrganization(
         args.name,
         args.email,
         args.description
-      )
+      );
+    },
+    addItem: async (parent, args) => {
+      await Organization.addItemToOrganization(
+        args.organizationId,
+        args.coordinateX,
+        args.coordinateY,
+        args.price,
+        args.name,
+        args.description,
+        args.locationName
+      );
+    }
   }
 };
 
