@@ -11,17 +11,15 @@ class Organization {
     return await Organization.find({ name: orgName });
   }
 
-  static async addOrg(orgName) {
-    console.log("hit");
+  static async addOrganization(name, email, description) {
+    const Organization = mongoose.model("Organizations");
+    const newOrg = await new Organization({
+      name,
+      email,
+      description
+    }).save();
+    return [newOrg];
   }
-
-  //   static getBookFromTitle(author) {
-  //     for (let i = 0; i < books.length; i++) {
-  //       if (books[i].author == author) {
-  //         return [books[i]];
-  //       }
-  //     }
-  //   }
 }
 
 module.exports = {

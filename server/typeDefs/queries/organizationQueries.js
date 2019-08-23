@@ -10,5 +10,3 @@ const organizationQueries = gql`
 module.exports = {
   organizationQueries
 };
-
-////getBookFromTitle(author: String): [Book]

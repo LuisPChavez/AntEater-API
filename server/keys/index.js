@@ -1,3 +1,4 @@
 module.exports = {
-  mongoURI: "mongodb://luis:testPASas21@ds243054.mlab.com:43054/anteater"
+  mongoURI:
+    "mongodb://Luis:TEstPA$SwoRd826@ds033123.mlab.com:33123/anteater-dev"
 };
