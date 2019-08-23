@@ -13,12 +13,11 @@ class Organization {
 
   static async addOrganization(name, email, description) {
     const Organization = mongoose.model("Organizations");
-    const newOrg = await new Organization({
+    let newOrg = await new Organization({
       name,
       email,
       description
     }).save();
-    console.log(newOrg);
     return [newOrg];
   }
 

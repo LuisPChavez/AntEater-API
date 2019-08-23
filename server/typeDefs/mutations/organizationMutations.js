@@ -6,6 +6,7 @@ const organizationMutations = gql`
       name: String
       email: String
       description: String
+      items: [ItemInput]
     ): [Organization]
 
     addItem(
