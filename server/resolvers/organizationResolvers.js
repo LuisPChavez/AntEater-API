@@ -15,7 +15,7 @@ const organizationResolvers = {
       );
     },
     addItem: async (parent, args) => {
-      await Organization.addItemToOrganization(
+      return await Organization.addItemToOrganization(
         args.organizationId,
         args.coordinateX,
         args.coordinateY,

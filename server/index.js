@@ -7,7 +7,7 @@ require("./schema/Organization");
 const { mongoURI } = require("./keys");
 
 mongoose.Promise = global.Promise;
-mongoose.connect(mongoURI, { useNewUrlParser: true });
+mongoose.connect(mongoURI, { useNewUrlParser: true, useFindAndModify: false });
 
 // const Organization = mongoose.model("Organizations");
 // new Organization({

@@ -10,6 +10,8 @@ const organizationMutations = gql`
     ): [Organization]
 
     addItem(
+      _id: String!
+      organizationId: String!
       coordinateX: Float!
       coordinateY: Float!
       price: Int!
@@ -23,5 +25,3 @@ const organizationMutations = gql`
 module.exports = {
   organizationMutations
 };
-
-////getBookFromTitle(author: String): [Book]

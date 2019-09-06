@@ -13,7 +13,7 @@ class Organization {
 
   static async addOrganization(name, email, description) {
     const Organization = mongoose.model("Organizations");
-    let newOrg = await new Organization({
+    const newOrg = await new Organization({
       name,
       email,
       description
@@ -30,14 +30,30 @@ class Organization {
     description,
     locationName
   ) {
-    console.log(
-      organizationId,
+    const Organization = mongoose.model("Organizations");
+    const item = {
       coordinateX,
       coordinateY,
       price,
       name,
       description,
       locationName
+    };
+
+    console.log(item);
+    return [item];
+    Organization.findOneAndUpdate(
+      { _id: organizationId },
+      { $push: { items: item } },
+      { new: true },
+      (err, org) => {
+        if (err) {
+          console.log(err);
+        } else {
+          console.log(org.items[org.items.length - 1]);
+          return [org.items[org.items.length - 1]];
+        }
+      }
     );
   }
 }
