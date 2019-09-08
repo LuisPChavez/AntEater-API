@@ -4,8 +4,29 @@ const organizationType = gql`
   type Organization {
     _id: String!
     name: String!
-    email: String
+    email: String!
     description: String
+    items: [Item!]
+  }
+
+  type Item {
+    _id: String!
+    coordinateX: Float!
+    coordinateY: Float!
+    price: Int!
+    name: String!
+    description: String
+    locationName: String
+  }
+
+  input ItemInput {
+    _id: String!
+    coordinateX: Float!
+    coordinateY: Float!
+    price: Int!
+    name: String!
+    description: String
+    locationName: String
   }
 `;
 
