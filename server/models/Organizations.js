@@ -31,7 +31,7 @@ class Organization {
     allOrganizations.forEach(organization => {
       allItems = [...allItems, ...organization.items];
     });
-    console.log(allItems);
+
     return allItems;
   }
 
@@ -42,6 +42,7 @@ class Organization {
       email,
       description
     }).save();
+
     return [newOrg];
   }
 
