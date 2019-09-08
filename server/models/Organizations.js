@@ -40,21 +40,14 @@ class Organization {
       locationName
     };
 
-    console.log(item);
-    return [item];
-    Organization.findOneAndUpdate(
+    let org = await Organization.findOneAndUpdate(
       { _id: organizationId },
       { $push: { items: item } },
-      { new: true },
-      (err, org) => {
-        if (err) {
-          console.log(err);
-        } else {
-          console.log(org.items[org.items.length - 1]);
-          return [org.items[org.items.length - 1]];
-        }
-      }
+      { new: true, runValidators: true }
     );
+
+    const newItem = org.items[org.items.length - 1];
+    return [newItem];
   }
 }
 

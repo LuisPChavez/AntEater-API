@@ -10,7 +10,6 @@ const organizationMutations = gql`
     ): [Organization]
 
     addItem(
-      _id: String!
       organizationId: String!
       coordinateX: Float!
       coordinateY: Float!

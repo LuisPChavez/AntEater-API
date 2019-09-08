@@ -2,10 +2,10 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const itemSchema = new Schema({
-  coordinateX: Number,
-  coordinateY: Number,
-  price: Number,
-  name: String,
+  coordinateX: { type: Number, required: true },
+  coordinateY: { type: Number, required: true },
+  price: { type: Number, required: true },
+  name: { type: String, required: true },
   description: String,
   locationName: String
 });

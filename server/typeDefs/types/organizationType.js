@@ -4,7 +4,7 @@ const organizationType = gql`
   type Organization {
     _id: String!
     name: String!
-    email: String
+    email: String!
     description: String
     items: [Item!]
   }
