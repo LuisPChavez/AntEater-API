@@ -14,6 +14,16 @@ const organizationResolvers = {
         args.description
       );
     },
+    editOrganization: async (parent, args) => {
+      return await Organization.editOrganization(
+        args.organizationId,
+        args.name,
+        args.description
+      );
+    },
+    deleteOrganization: async (parent, args) => {
+      return await Organization.deleteOrganization(args.organizationId);
+    },
     addItem: async (parent, args) => {
       return await Organization.addItemToOrganization(
         args.organizationId,

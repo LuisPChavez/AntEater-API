@@ -21,6 +21,33 @@ class Organization {
     return [newOrg];
   }
 
+  static async editOrganization(organizationId, name, description) {
+    const Organization = mongoose.model("Organizations");
+    const changes = {
+      ...(name ? { name } : {}),
+      ...(description ? { description } : {})
+    };
+
+    const updatedOrg = await Organization.findOneAndUpdate(
+      { _id: organizationId },
+      changes,
+      { new: true }
+    );
+
+    return [updatedOrg];
+  }
+
+  static async deleteOrganization(organizationId) {
+    const Organization = mongoose.model("Organizations");
+    const orgId = { _id: organizationId };
+
+    const deletedOrganization = await Organization.deleteOne(orgId);
+    if (deletedOrganization.deletedCount === 0) {
+      throw new Error("Id not found");
+    }
+    return [orgId];
+  }
+
   static async addItemToOrganization(
     organizationId,
     coordinateX,
@@ -30,7 +57,6 @@ class Organization {
     description,
     locationName
   ) {
-    const Organization = mongoose.model("Organizations");
     const item = {
       coordinateX,
       coordinateY,
@@ -40,13 +66,13 @@ class Organization {
       locationName
     };
 
-    let org = await Organization.findOneAndUpdate(
+    const updatedOrg = await Organization.findOneAndUpdate(
       { _id: organizationId },
       { $push: { items: item } },
       { new: true, runValidators: true }
     );
 
-    const newItem = org.items[org.items.length - 1];
+    const newItem = updatedOrg.items[org.items.length - 1];
     return [newItem];
   }
 }
