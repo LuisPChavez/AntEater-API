@@ -3,7 +3,9 @@ const { gql } = require("apollo-server");
 const organizationQueries = gql`
   type Query {
     allOrganizations: [Organization]
-    getOrganizationByName(orgName: String!): [Organization]
+    getOrganizationByName(organizationName: String!): [Organization]
+    getAllItemsFromOneOrganization(organizationId: String!): [Item]
+    getAllItems: [Item]
   }
 `;
 

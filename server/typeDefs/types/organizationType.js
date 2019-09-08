@@ -19,6 +19,10 @@ const organizationType = gql`
     locationName: String
   }
 
+  type _id {
+    _id: String!
+  }
+
   input ItemInput {
     _id: String!
     coordinateX: Float!

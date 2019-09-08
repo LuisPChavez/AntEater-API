@@ -1,0 +1,120 @@
+ADD ORGANIZATION
+
+mutation(
+  $name: String!
+  $description: String
+  $email: String!
+) {
+  addOrganization(
+    name: $name
+    email: $email
+    description: $description
+  ) {
+    _id
+  }
+}
+
+VARS:
+
+{
+  "name": "boba",
+  "description": "drink",
+  "email": "test@test.com"
+}
+
+GET ALL ITEMS FROM ONE ORGANIZATION 
+query($organizationId: String!){
+  getAllItemsFromOneOrganization(organizationId: $organizationId) {
+    coordinateX
+  }
+}
+VARS: 
+{
+  "organizationId": "5d747f60b8c7d724bc344a59"
+}
+
+ADD ITEMS
+# Write your query or mutation here
+mutation(
+  $organizationId: String!
+  $coordinateX: Float!
+  $coordinateY: Float!
+  $price: Int!
+  $name: String!
+  $description: String
+  $locationName: String
+) {
+  addItemToOrganization(
+    organizationId: $organizationId
+    coordinateX: $coordinateX
+    coordinateY: $coordinateY
+    price: $price
+    name: $name
+    description: $description
+    locationName: $locationName
+  ) {
+    name
+    coordinateX
+    price
+  }
+}
+
+VARS:
+{
+  "organizationId": "5d747f60b8c7d724bc344a59",
+  "coordinateY": 4.1205,
+  "coordinateX": 1.1205,
+  "price": 58,
+  "name": "boba",
+  "description": "drink",
+  "locationName": "Aldrich"
+}
+
+EDIT ITEMS
+mutation(
+  $organizationId: String!
+  $itemId: String!
+  $coordinateX: Float
+  $coordinateY: Float
+  $price: Int
+  $name: String
+  $description: String
+  $locationName: String
+) {
+  editItem(
+    organizationId: $organizationId
+    itemId: $itemId
+    coordinateX: $coordinateX
+    coordinateY: $coordinateY
+    price: $price
+    name: $name
+    description: $description
+    locationName: $locationName
+  ) {
+    name
+    coordinateX
+    price
+  }
+}
+
+VARS: 
+{
+  "organizationId": "5d747f8eb8c7d724bc344a5a",
+  "itemId": "5d748b87be3d4c4b58e7a9c5",
+  "coordinateY": 2.1205,
+  "coordinateX": 2.1205,
+  "price": 99
+}
+
+
+DELETE ITEMS:
+# Write your query or mutation here
+mutation($itemId: String!) {
+  deleteItem(itemId: $itemId) {
+    _id
+  }
+}
+
+{
+  "itemId": "5d74aa494ce6945144272370"
+}
