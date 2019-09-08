@@ -17,7 +17,7 @@ const organizationMutations = gql`
 
     deleteOrganization(organizationId: String!): [_id]
 
-    addItem(
+    addItemToOrganization(
       organizationId: String!
       coordinateX: Float!
       coordinateY: Float!
@@ -26,6 +26,19 @@ const organizationMutations = gql`
       description: String
       locationName: String
     ): [Item]
+
+    editItem(
+      organizationId: String!
+      itemId: String!
+      coordinateX: Float
+      coordinateY: Float
+      price: Int
+      name: String
+      description: String
+      locationName: String
+    ): [Item]
+
+    deleteItem(itemId: String!): [_id]
   }
 `;
 
